@@ -10,9 +10,12 @@ class ChatsController < ApplicationController
   end
 
   def create
-    @chat_sender = current_user.chats.create(chat_params)
-
-
+    @chat = current_user.chats.create(chat_params)
+    if @chat.valid?
+      redirect_to root_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
