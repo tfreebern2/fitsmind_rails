@@ -1,1 +1,14 @@
-<h1>New Chat Form</h1>
+<div class="container-fluid">
+  <div class="col-sm-8 col-sm-offset-2">
+    <h1>New Chat Form</h1>
+    <hr />
+    <%= simple_form_for(@chat, class: 'form-control') do |f| %>
+      <%= f.collection_select(:user_id, User.all, :id, :email) %>
+      <br />
+      <br />
+      <%= f.input :message %>
+      <br />
+      <%= f.submit "Send Message", class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

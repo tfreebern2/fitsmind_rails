@@ -3,6 +3,7 @@ class ChatsController < ApplicationController
   end
 
   def new
+    @chat = Chat.new
   end
 
   def create
