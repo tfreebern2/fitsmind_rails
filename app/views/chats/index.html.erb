@@ -3,14 +3,30 @@
     <h1>Chat Index Page</h1>
     <hr />
 
-    <% @chats.each do |chat| %>
-      <% if current_user.id == chat.user_id || current_user.id == chat.chat_receiver %>
-        <%= chat.chat_receiver %>
-        <br />
-        <%= chat.message %>
-        <hr />
+    <div class="col-sm-6">
+      <h3>Sent Messages</h3>
+      <% @chats.each do |chat| %>
+        <% if current_user.id == chat.user_id %>
+          <%= chat.chat_receiver %>
+          <br />
+          <%= chat.message %>
+          <br />
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
+
+    <div class="col-sm-6">
+      <h3>Received Messages</h3>
+      <% @chats.each do |chat| %>
+        <% if current_user.id == chat.chat_receiver %>
+          <%= chat.chat_receiver %>
+          <br />
+          <%= chat.message %>
+          <br />
+        <% end %>
+      <% end %>
+    </div>
+    <br />
     <%= link_to 'Create New Chat', new_chat_path, class: 'btn btn-primary' %>
   </div>
 </div>
