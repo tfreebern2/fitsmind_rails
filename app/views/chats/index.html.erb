@@ -5,36 +5,38 @@
 
     <div class="col-sm-6">
       <h3 class="text-center">Sent Messages</h3>
-      <hr />
-      <% @chats.each do |chat| %>
-        <% if current_user.id == chat.user_id %>
-          <b>Receiver:</b> <%= chat.chat_receiver %>
-          <br />
-          <b>Message:</b> <%= chat.message %>
-          <br />
-          <b>Sent At:</b> <i><%= chat.created_at %></i>
-          <br />
-          <br />
-          <br />
+      <div class="col-sm-12 message">
+        <% @chats.each do |chat| %>
+          <% if current_user.id == chat.user_id %>
+            <b>Receiver:</b> <%= chat.chat_receiver %>
+            <br />
+            <b>Message:</b> <%= chat.message %>
+            <br />
+            <b>Sent At:</b> <i><%= chat.created_at %></i>
+            <br />
+            <br />
+            <br />
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
 
     <div class="col-sm-6">
       <h3 class="text-center">Received Messages</h3>
-      <hr />
-      <% @chats.each do |chat| %>
-        <% if current_user.id == chat.chat_receiver %>
-          <b>Sender:</b> <%= chat.user_id %>
-          <br />
-          <b>Message:</b> <%= chat.message %>
-          <br />
-          <b>Sent At:</b> <i><%= chat.created_at %></i>
-          <br />
-          <br />
-          <br />
+      <div class="col-sm-12 message">
+        <% @chats.each do |chat| %>
+          <% if current_user.id == chat.chat_receiver %>
+            <b>Sender:</b> <%= chat.user_id %>
+            <br />
+            <b>Message:</b> <%= chat.message %>
+            <br />
+            <b>Sent At:</b> <i><%= chat.created_at %></i>
+            <br />
+            <br />
+            <br />
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>
