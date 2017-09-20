@@ -1,6 +1,6 @@
 class ChatsController < ApplicationController
   before_action :authenticate_user!
-
+  
   def index
     @chats = Chat.all
   end
@@ -21,6 +21,6 @@ class ChatsController < ApplicationController
   private
 
   def chat_params
-    params.require(:chat).permit(:message, :user_id, :chat_receiver)
+    params.require(:chat).permit(:message, :user_id, :chat_receiver, :receiver_email, :sender_email)
   end
 end
