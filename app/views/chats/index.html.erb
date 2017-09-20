@@ -8,11 +8,11 @@
       <hr />
       <% @chats.each do |chat| %>
         <% if current_user.id == chat.user_id %>
-          <strong><%= chat.chat_receiver %></strong>
+          <b>Receiver:</b> <%= chat.chat_receiver %>
           <br />
-          <%= chat.message %>
+          <b>Message:</b> <%= chat.message %>
           <br />
-          <i><%= chat.created_at %></i>
+          <b>Sent At:</b> <i><%= chat.created_at %></i>
           <br />
           <br />
           <br />
@@ -25,11 +25,11 @@
       <hr />
       <% @chats.each do |chat| %>
         <% if current_user.id == chat.chat_receiver %>
-          <strong><%= chat.chat_receiver %></strong>
+          <b>Sender:</b> <%= chat.user_id %>
           <br />
-          <%= chat.message %>
+          <b>Message:</b> <%= chat.message %>
           <br />
-          <i><%= chat.created_at %></i>
+          <b>Sent At:</b> <i><%= chat.created_at %></i>
           <br />
           <br />
           <br />
