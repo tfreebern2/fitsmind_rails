@@ -1,32 +1,46 @@
 <div class="container-fluid">
   <div class="col-sm-8 col-sm-offset-2">
-    <h1>Chat Index Page</h1>
-    <hr />
+    <h1 class="text-center">Chat Index Page</h1>
+    <br />
 
     <div class="col-sm-6">
-      <h3>Sent Messages</h3>
+      <h3 class="text-center">Sent Messages</h3>
+      <hr />
       <% @chats.each do |chat| %>
         <% if current_user.id == chat.user_id %>
-          <%= chat.chat_receiver %>
+          <strong><%= chat.chat_receiver %></strong>
           <br />
           <%= chat.message %>
+          <br />
+          <i><%= chat.created_at %></i>
+          <br />
+          <br />
           <br />
         <% end %>
       <% end %>
     </div>
 
     <div class="col-sm-6">
-      <h3>Received Messages</h3>
+      <h3 class="text-center">Received Messages</h3>
+      <hr />
       <% @chats.each do |chat| %>
         <% if current_user.id == chat.chat_receiver %>
-          <%= chat.chat_receiver %>
+          <strong><%= chat.chat_receiver %></strong>
           <br />
           <%= chat.message %>
+          <br />
+          <i><%= chat.created_at %></i>
+          <br />
+          <br />
           <br />
         <% end %>
       <% end %>
     </div>
-    <br />
+  </div>
+</div>
+<br />
+<div class="container-fluid">
+  <div class="col-sm-8 col-sm-offset-2">
     <%= link_to 'Create New Chat', new_chat_path, class: 'btn btn-primary' %>
   </div>
 </div>
